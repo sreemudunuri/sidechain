@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :find_user_by_id, only: %i[show edit destroy]
+  before_action :find_user_by_id, only: %i[show edit destroy update]
   before_action :all_users, only: %i[index]
 
   def index
@@ -39,7 +39,6 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-
     redirect_to users_path
   end
 
