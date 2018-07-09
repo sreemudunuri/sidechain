@@ -4,3 +4,9 @@
 <% @user.songs.each do |song| %>
   <%= link_to song.name, song %><br><br>
 <% end %>
+------------<br><br>
+<%= link_to 'Edit', edit_user_path(@user) %><br><br>
+
+<%= link_to 'Delete', @user, method: 'delete' %><br><br>
+
+<%= link_to 'All Users', users_path %>
