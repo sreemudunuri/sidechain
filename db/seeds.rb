@@ -25,4 +25,13 @@ Comment.create(content: "Improve your vocals", user_id: 3, song_id: 2)
 Comment.create(content: "cool", user_id: 3, song_id: 1)
 Comment.create(content: "Needs more bass", user_id: 3, song_id: 4)
 Comment.create(content: "I sing better than you", user_id: 1, song_id: 2)
-Comment.create(content: "I am the next president", user_id: 2, song_id: 5)
+Comment.create(content: "Bad song", user_id: 2, song_id: 2)
+
+#
+# Follow.delete_all
+#
+# Follow.create(user_id: 1, follower_id:2)
+# Follow.create(user_id: 2, follower_id:1)
+# Follow.create(user_id: 2, follower_id:3)
+# Follow.create(user_id: 3, follower_id:1)
+# Follow.create(user_id: 1, follower_id:3)
