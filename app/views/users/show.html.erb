@@ -1,0 +1,6 @@
+<h1><%= @user.name %>'s Profile </h1>
+
+<h4>List of Songs:</h4>
+<% @user.songs.each do |song| %>
+  <%= link_to song.name, song %><br><br>
+<% end %>
