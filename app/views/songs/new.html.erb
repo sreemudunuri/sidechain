@@ -1,0 +1,15 @@
+<h1>Upload a Song</h1>
+
+<%= form_for @song do |f|%>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br>
+<br>
+<%= f.label "Upload an Audio File: "%>
+<br>
+<br>
+<%= f.file_field :song_file %>
+<br>
+<br>
+<%= f.submit %>
+<% end %>

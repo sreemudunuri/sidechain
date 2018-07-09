@@ -8,6 +8,19 @@ class SongsController < ApplicationController
   def show
   end
 
+  def new
+    @song = Song.new
+  end
+
+  def create
+    @song = Song.new(song_params)
+    if @song.save
+      redirect_to @song
+    else
+      render :new
+    end
+  end
+
   private
 
   def set_song
@@ -16,5 +29,9 @@ class SongsController < ApplicationController
 
   def all_songs
     @songs = Song.all
+  end
+
+  def song_params
+    params.require(:song).permit(:name, :user_id, :song_file)
   end
 end
