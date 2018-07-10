@@ -1,10 +1,13 @@
 <h2>Song Name: <%= @song.name %></h2>
 <h2>Artist: <%= link_to @song.user.name, @song.user %></h2>
 
-<audio controls>
-  <source src= <%= @song.song_url %> >
-Your browser does not support the audio element.
-</audio>
+<audio src= <%= @song.song_url %> controls></audio>
+<script src="jquery.js"></script>
+<script src="audioplayer.js"></script>
+<script>$( function() { $( 'audio' ).audioPlayer(); } );</script>
+
+
+
 
 <h3>Feedback: </h3>
 <% @song.comments.each do |comment|%>
