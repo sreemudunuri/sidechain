@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
 
-User.create(name: 'Drake')
-User.create(name: 'Kanye')
-User.create(name: 'Slowbeam')
+User.create(name: 'Drake', password: 'd')
+User.create(name: 'Kanye', password: 'k')
+User.create(name: 'Slowbeam', password: 's')
 
 Song.delete_all
 
