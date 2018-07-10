@@ -14,10 +14,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(assign_params)
     if @user.save
-
-      redirect_to @user
+      log_in_user(@user.id)
+      redirect_to songs_path
     else
-      render @user
+      render :new
     end
   end
 
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   end
 
   def assign_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :password)
   end
 
 end
