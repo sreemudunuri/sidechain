@@ -3,7 +3,7 @@ class SongsController < ApplicationController
   before_action :all_songs, only: [:index]
 
   def index
-    
+
   end
 
   def show
@@ -14,8 +14,13 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.create(song_params)
+    @song = Song.new(song_params)
+    @song.user = get_logged_in_user
+     if @song.save
       redirect_to @song
+      else
+        render :new
+      end
   end
 
   private
