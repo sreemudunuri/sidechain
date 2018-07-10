@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  skip_before_action :authorized?, only: [:new, :create]
   before_action :find_user_by_id, only: %i[show edit destroy update]
   before_action :all_users, only: %i[index]
 
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(assign_params)
     if @user.save
-
+      @song.user = get_logged_in_user
       redirect_to @user
     else
       render @user
@@ -40,6 +40,8 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    session.delete(:user_id)
+
     redirect_to users_path
   end
 
