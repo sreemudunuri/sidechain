@@ -1,11 +1,8 @@
 <h2>Song Name: <%= @song.name %></h2>
 <h2>Artist: <%= link_to @song.user.name, @song.user %></h2>
 
-<button><%= link_to "Play Song", @song.song_file, class: "html5" %></button>
-
 <audio controls>
-  <source src="horse.ogg" type="audio/ogg">
-  <source src="horse.mp3" type="audio/mpeg">
+  <source src= <%= @song.song_url %> >
 Your browser does not support the audio element.
 </audio>
 

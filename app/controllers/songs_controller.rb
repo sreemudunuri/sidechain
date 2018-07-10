@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+
   before_action :set_song, only: [:show, :edit, :update, :destroy]
   before_action :all_songs, only: [:index]
 
@@ -36,4 +37,5 @@ class SongsController < ApplicationController
   def song_params
     params.require(:song).permit(:name, :user_id, :song_file)
   end
+
 end

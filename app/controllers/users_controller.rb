@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(assign_params)
     if @user.save
       log_in_user(@user.id)
-      redirect_to songs_path
+      redirect_to @user
     else
       render :new
     end
