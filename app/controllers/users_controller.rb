@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(assign_params)
     if @user.save
+
       redirect_to @user
     else
       render @user
@@ -39,6 +40,14 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    redirect_to users_path
+  end
+
+  def follow
+    redirect_to users_path
+  end
+
+  def unfollow
     redirect_to users_path
   end
 

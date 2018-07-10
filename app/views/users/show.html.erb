@@ -1,12 +1,21 @@
 <h1><%= @user.name %>'s Profile </h1>
 
+<%= button_to "Follow", action: "follow", mehtod: :post %>
+<%= button_to "Unfollow", action: "unfollow", mehtod: :post %>
+
+
+
 <h4>List of Songs:</h4>
 <% @user.songs.each do |song| %>
   <%= link_to song.name, song %><br><br>
 <% end %>
+
+
+
+
 ------------<br><br>
-<%= link_to 'Edit', edit_user_path(@user) %><br><br>
+<button type="button" name="button"><%= link_to 'Edit', edit_user_path(@user) %></button><br><br>
 
-<%= link_to 'Delete', @user, method: 'delete' %><br><br>
+<button type="button" name="button"><%= link_to 'Delete', @user, method: 'delete' %></button><br><br>
 
-<%= link_to 'All Users', users_path %>
+<button type="button" name="button"><%= link_to 'All Users', users_path %></button>

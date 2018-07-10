@@ -1,15 +1,11 @@
 class Follow < ApplicationRecord
   belongs_to :user
 
-  @@followers = []
+  attr_reader :name
 
-  def follower_id=(id)
-    @follower = User.find(id)
-    @@followers << @follower
+  def name
+    User.find(self.follower_id)
   end
 
-  def self.followers
-    @@followers
-  end
-  
+
 end
