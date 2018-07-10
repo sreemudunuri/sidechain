@@ -1,8 +1,9 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: [:show, :create, :edit,:update, :destroy]
+  before_action :set_song, only: [:show, :edit, :update, :destroy]
   before_action :all_songs, only: [:index]
 
   def index
+    
   end
 
   def show
@@ -13,12 +14,8 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new(song_params)
-    if @song.save
+    @song = Song.create(song_params)
       redirect_to @song
-    else
-      render :new
-    end
   end
 
   private
