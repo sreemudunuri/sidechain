@@ -11,7 +11,7 @@
   <%= form_for @comment do |f| %>
     <%= f.label "Add feedback: " %>
     <%= f.text_field :content %>
-    <%=  f.hidden_field :song_id, value: @song.id %>
+    <%= f.hidden_field :song_id, value: @song.id %>
     <%= f.submit %>
   <% end %>
 <% end %>
