@@ -1,3 +1,4 @@
+<%= link_to "My Profile Page", @user %>
 
 <h2>Song Name: <%= @song.name %></h2>
 <h2>Artist: <%= link_to @song.user.name, @song.user %></h2>
@@ -32,5 +33,3 @@
     <strong>feedback: </strong><%=comment.content%></li>
 </ul>
 <% end %>
-
-<%= link_to "My Profile Page", @user %>
