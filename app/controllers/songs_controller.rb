@@ -27,10 +27,10 @@ class SongsController < ApplicationController
   end
 
   def comment
+    @comment = Comment.new
     @comment = Comment.create(comment_params)
     @comment.update(user_id: session[:user_id], song_id: @song.id)
-    byebug
-    redirect_to @song
+    render :show
   end
 
   private

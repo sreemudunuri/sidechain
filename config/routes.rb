@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   resources :follows
   resources :song_tags
   resources :tags
-  resources :comments
-  resources :songs
+  resources :songs do
+    post "/comments", to: 'songs#comment'
+    end
   resources :users
   resources :sessions, only: [:new, :create]
 
@@ -13,6 +14,6 @@ Rails.application.routes.draw do
   post "/user/:id/follow", to: 'users#follow'
   post "/user/:id/unfollow", to: 'users#unfollow'
 
-  post "/songs/:id/comment", to: 'songs#comment'
+
 
 end
