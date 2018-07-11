@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sidechain</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <header>
-      <% if @logged_in_user %>
-      Logged in as: <%= @logged_in_user.name %>
-      <%= link_to "Log out", logout_path, method: 'delete' %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "SideChain", '#', id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
 
-      <% else %>
-      <%= link_to "Register", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-      <% end %>
+            <% if @logged_in_user %>
+            <li>Logged in as: <%= @logged_in_user.name %></li>
+              <li><%= link_to "Log out", logout_path, method: 'delete' %></li>
+            <% else %>
+              <li><%= link_to "Register", new_user_path %></li>
+              <li><%= link_to "Login", new_session_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
     </header>
-
-    <%= yield %>
+    <br>
+    <br>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
