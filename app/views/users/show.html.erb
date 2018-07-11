@@ -6,7 +6,7 @@
 
 <% if @session_id != @user.id %>
   <% if @user.follows.map{|f| f.follower_id}.include?(@session_id) %>
-    <%= button_to "Unfollow", action: "unfollow", mehtod: :post %>
+    <%= button_to "Unfo llow", action: "unfollow", mehtod: :post %>
   <% else %>
       <%= button_to "Follow", action: "follow", mehtod: :post %>
   <% end %>
