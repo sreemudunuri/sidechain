@@ -18,7 +18,7 @@
     <%= f.text_field :timestamp %>
     <%= f.label "Add feedback: " %>
     <%= f.text_field :content %>
-    <%=  f.hidden_field :song_id, value: @song.id %>
+    <%= f.hidden_field :song_id, value: @song.id %>
     <%= f.submit %>
   <% end %>
 <% end %>
