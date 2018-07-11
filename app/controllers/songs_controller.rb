@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
 
-  before_action :set_song, only: [:show, :edit, :update, :destroy]
+  before_action :set_song, only: [:show, :edit, :update, :destroy, :comment]
   before_action :all_songs, only: [:index]
 
   def index
@@ -9,6 +9,7 @@ class SongsController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
+    @comment = Comment.new
   end
 
   def new
@@ -25,6 +26,13 @@ class SongsController < ApplicationController
       end
   end
 
+  def comment
+    @comment = Comment.create(comment_params)
+    @comment.update(user_id: session[:user_id], song_id: @song.id)
+    byebug
+    redirect_to @song
+  end
+
   private
 
   def set_song
@@ -37,6 +45,10 @@ class SongsController < ApplicationController
 
   def song_params
     params.require(:song).permit(:name, :user_id, :song_file)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:user_id, :song_id, :content)
   end
 
 end
