@@ -24,6 +24,8 @@ class UsersController < ApplicationController
   def show
     @session_id = session[:user_id]
     @following = @user.following
+
+
   end
 
   def edit
@@ -47,16 +49,19 @@ class UsersController < ApplicationController
   def follow
     @session_id = session[:user_id]
     Follow.create(user_id: find_user_by_id.id, follower_id: session[:user_id])
-
+    @following = @user.following
     render :show
 
 
   end
 
   def unfollow
+
     @follow =  Follow.find_by(user_id: find_user_by_id.id, follower_id: session[:user_id])
 
     @follow.destroy
+
+    @following = @user.following
 
     render :show
   end

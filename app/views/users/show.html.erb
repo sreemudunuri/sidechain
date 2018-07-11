@@ -22,14 +22,17 @@
 
 <h4>Artists you are following: </h4>
 <%  @following.each do |follow| %>
-  <%= link_to follow.name, follow %>
+  <%= link_to User.find(follow.user_id).name,  User.find(follow.user_id)%>
 <% end %>
 
 <br><br>
 
 ------------<br><br>
-<button type="button" name="button"><%= link_to 'Edit', edit_user_path(@user) %></button><br><br>
 
-<button type="button" name="button"><%= link_to 'Delete', @user, method: 'delete' %></button><br><br>
+<%  if @session_id == @user.id %>
+  <button type="button" name="button"><%= link_to 'Edit my profile', edit_user_path(@user) %></button><br><br>
 
-<button type="button" name="button"><%= link_to 'All Users', users_path %></button>
+  <button type="button" name="button"><%= link_to 'Delete my account', @user, method: 'delete', data: {confirm: "Are you sure?"}  %></button><br><br>
+<% end %>
+
+  <button type="button" name="button"><%= link_to 'All Users', users_path %></button>
