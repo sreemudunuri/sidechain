@@ -1,7 +1,15 @@
 <h1><%= @user.name %>'s Profile </h1>
 
-<%= button_to "Follow", action: "follow", mehtod: :post %>
-<%= button_to "Unfollow", action: "unfollow", mehtod: :post %>
+<% if @session_id != @user.id %>
+  <% if @user.follows.map{|f| f.follower_id}.include?(@session_id) %>
+    <%= button_to "Unfollow", action: "unfollow", mehtod: :post %>
+  <% else %>
+      <%= button_to "Follow", action: "follow", mehtod: :post %>
+  <% end %>
+
+<% end %>
+
+
 
 
 
@@ -10,8 +18,14 @@
   <%= link_to song.name, song %><br><br>
 <% end %>
 
+------------<br><br>
 
+<h4>Artists you are following: </h4>
+<%  @following.each do |follow| %>
+  <%= link_to follow.name, follow %>
+<% end %>
 
+<br><br>
 
 ------------<br><br>
 <button type="button" name="button"><%= link_to 'Edit', edit_user_path(@user) %></button><br><br>

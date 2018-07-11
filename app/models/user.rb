@@ -5,12 +5,6 @@ class User < ApplicationRecord
 
   attr_reader :follower_names
 
-  def follower_names
-    self.follows.map do |follow|
-      User.find(follow.follower_id).name
-    end
-  end
-
   validates_uniqueness_of :name
 
   has_secure_password
@@ -22,5 +16,16 @@ class User < ApplicationRecord
   # def authenticate(plaintext_password)
   #   BCrypt::Password.new(self.password_digest) == plaintext_password
   # end
+
+  def follower_names
+    self.follows.map do |follow|
+      User.find(follow.follower_id).name
+    end
+  end
+
+  def following
+    Follow.all.select {|follow| follow.follower_id == self.id}
+  end
+
 
 end

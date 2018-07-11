@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authorized?, only: [:new, :create]
-  before_action :find_user_by_id, only: %i[show edit destroy update]
+  before_action :find_user_by_id, only: %i[show edit destroy update follow]
   before_action :all_users, only: %i[index]
 
   def index
@@ -15,14 +15,15 @@ class UsersController < ApplicationController
     @user = User.new(assign_params)
     if @user.save
       log_in_user(@user.id)
-      redirect_to songs_path
+      redirect_to @user
     else
       render :new
     end
   end
 
   def show
-
+    @session_id = session[:user_id]
+    @following = @user.following
   end
 
   def edit
@@ -44,11 +45,20 @@ class UsersController < ApplicationController
   end
 
   def follow
-    redirect_to users_path
+    @session_id = session[:user_id]
+    Follow.create(user_id: find_user_by_id.id, follower_id: session[:user_id])
+
+    render :show
+
+
   end
 
   def unfollow
-    redirect_to users_path
+    @follow =  Follow.find_by(user_id: find_user_by_id.id, follower_id: session[:user_id])
+
+    @follow.destroy
+
+    render :show
   end
 
   private
