@@ -2,10 +2,9 @@ Rails.application.routes.draw do
   resources :follows
   resources :song_tags
   resources :tags
-  resources :songs do
-    post "/comments", to: 'songs#comment'
-    end
+  resources :songs
   resources :users
+  resources :comments, only: %i[create]
   resources :sessions, only: [:new, :create]
 
   delete '/logout', to: 'sessions#destroy', as: "logout"
@@ -13,7 +12,5 @@ Rails.application.routes.draw do
 
   post "/users/:id/follow", to: 'users#follow'
   post "/users/:id/unfollow", to: 'users#unfollow'
-
-
 
 end

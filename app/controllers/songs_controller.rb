@@ -26,13 +26,6 @@ class SongsController < ApplicationController
       end
   end
 
-  def comment
-    @comment = Comment.new
-    @comment = Comment.create(comment_params)
-    @comment.update(user_id: session[:user_id], song_id: @song.id)
-    render :show
-  end
-
   private
 
   def set_song
@@ -45,10 +38,6 @@ class SongsController < ApplicationController
 
   def song_params
     params.require(:song).permit(:name, :user_id, :song_file)
-  end
-
-  def comment_params
-    params.require(:comment).permit(:user_id, :song_id, :content)
   end
 
 end

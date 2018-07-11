@@ -9,12 +9,12 @@
 <h3>Feedback: </h3>
 
 <% if @song.user.id != session[:user_id] %>
-
-<%= form_for @comment do |f| %>
-<%= f.label "Add feedback: " %>
-<%= f.text_field :content %>
-<%= f.submit %>
-<% end %>
+  <%= form_for @comment do |f| %>
+    <%= f.label "Add feedback: " %>
+    <%= f.text_field :content %>
+    <%=  f.hidden_field :song_id, value: @song.id %>
+    <%= f.submit %>
+  <% end %>
 <% end %>
 
 
