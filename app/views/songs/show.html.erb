@@ -6,6 +6,17 @@
 
 
 <h3>Feedback: </h3>
+
+<% if @song.user.id != session[:user_id] %>
+
+<%= form_for @comment do |f| %>
+<%= f.label "Add feedback: " %>
+<%= f.text_field :content %>
+<%= f.submit %>
+<% end %>
+<% end %>
+
+
 <% @song.comments.each do |comment|%>
 <ul>
   <li><strong><%=comment.user.name %>:</strong> <%=comment.content%></li>
