@@ -2,6 +2,9 @@ class Comment < ApplicationRecord
   belongs_to :song
   belongs_to :user
 
+  validates :timestamp, presence: true, format: { with: /[0-9][0-9]:[0-9][0-9]/}
+  validates :content, presence: true
+
   def make_timestamp
     self.timestamp = self.timestamp.split(":").join("")
   end
