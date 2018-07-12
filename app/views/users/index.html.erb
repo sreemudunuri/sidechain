@@ -1,9 +1,9 @@
 <h1>List of all Users</h1>
 
-<h5><%= link_to 'New User', new_user_path%></h5>
+
 
 <% @users.each do |user|%>
   <% if user.id != session[:user_id] %>
-    <%= link_to user.name, user %><br><br>
+    <h4><%= link_to user.name, user %><br></h4>
   <% end %>
 <% end %>
