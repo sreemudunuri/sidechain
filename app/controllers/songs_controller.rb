@@ -10,6 +10,10 @@ class SongsController < ApplicationController
   def show
     @user = User.find(session[:user_id])
     @comment = Comment.new
+    @song.make_comment_timestamps
+    @song.make_timestamps_integers
+    @sorted_comments = @song.sort_comment_timestamps
+    @song.untimestamp_comments
   end
 
   def new

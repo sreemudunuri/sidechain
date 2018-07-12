@@ -1,35 +1,41 @@
-<%= link_to "My Profile Page", @user %>
-
-<h2>Song Name: <%= @song.name %></h2>
+<h1><%= @song.name %></h1>
 <h2>Artist: <%= link_to @song.user.name, @song.user %></h2>
 
-<img src= <%= @song.image_url %> height="100" width="100">
-<br>
-<br>
-<audio src= <%= @song.song_url %> controls></audio>
+<div style="width:500px; margin:0 auto;">
+  <img src= <%= @song.image_url %> height="100" width="100">&nbsp &nbsp &nbsp
+  <audio src= <%= @song.song_url %> controls style="vertical-align: middle"></audio>
+</div>
 
 
 
-<h3>Feedback: </h3>
-
-<% if @song.user.id != session[:user_id] %>
-  <%= form_for @comment do |f| %>
-    <%= f.label "Timestamp: " %>
-    <%= f.text_field :timestamp %>
-    <%= f.label "Add feedback: " %>
-    <%= f.text_field :content %>
-    <%= f.hidden_field :song_id, value: @song.id %>
-    <%= f.submit %>
+<div style="width:500px; margin:0 auto;">
+  <br>
+  <h3>Feedback: </h3>
+  <br>
+  <% if @song.user.id != session[:user_id] %>
+    <%= form_for @comment do |f| %>
+      <%= f.label "Timestamp: [00:00]" %>
+      <%= f.text_field :timestamp %>
+      <br>
+      <br>
+      <%= f.label "Add feedback: " %>
+      <%= f.text_field :content %>
+      <%= f.hidden_field :song_id, value: @song.id %>
+      <br>
+      <br>
+      <%= f.submit name="Add Feedback" %>
+    <% end %>
   <% end %>
-<% end %>
+  <br>
 
+  <% @sorted_comments.each do |comment|%>
+  <ul>
+    <li><strong><%=comment.user.name %>:</strong>
+      <br>
+       <%=comment.timestamp%>
+      <strong>feedback: </strong><%=comment.content%></li>
+      <br>
+  </ul>
+  <% end %>
 
-<% @song.comments.each do |comment|%>
-<ul>
-  <li><strong><%=comment.user.name %>:</strong>
-    <br>
-    <br>
-     <%=comment.timestamp%>
-    <strong>feedback: </strong><%=comment.content%></li>
-</ul>
-<% end %>
+</div>

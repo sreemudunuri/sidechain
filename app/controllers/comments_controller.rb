@@ -4,7 +4,11 @@ class CommentsController < ApplicationController
 
     @comment.update(user_id: session[:user_id])
 
+    @comment.timestamp.to_i
+    @comment.save
+    
     @song = Song.find(@comment.song_id)
+
 
     redirect_to @song
   end
