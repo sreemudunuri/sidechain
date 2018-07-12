@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   post "/users/:id/follow", to: 'users#follow'
   post "/users/:id/unfollow", to: 'users#unfollow'
 
+  get "", to: 'sessions#new'
+
 end

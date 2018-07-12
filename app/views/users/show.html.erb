@@ -19,16 +19,16 @@
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col col-lg-6">
-      <h3>Your Songs:</h3>
+      <h5>Your Songs:</h5><br>
       <% @user.songs.each do |song| %>
         <h4><%= link_to song.name, song %></h4>
       <% end %>
     </div>
 
     <div class="col col-lg-6">
-      <h3>Artists you are following: </h3> 
+      <h5>Artists you are following: </h5><br>
       <%  @following.each do |follow| %>
-        <h4>Name: <%= link_to User.find(follow.user_id).name,  User.find(follow.user_id)%></h4>
+        <h4><%= link_to User.find(follow.user_id).name,  User.find(follow.user_id)%></h4>
           <% User.find(follow.user_id).songs.each do |song|%>
             <ul>
               <li><%= link_to song.name, song_path(song) %></li>
