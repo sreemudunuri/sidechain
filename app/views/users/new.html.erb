@@ -1,12 +1,18 @@
 <h1>Create User</h1>
 <div class="container">
-  <%= form_for @user do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-    <br>
-    <%= f.label :password %>
-    <%= f.password_field :password %><br>
-    <br>
-    <%= f.submit 'Create User' %>
+  <div class="row justify-content-md-center">
+    <div class="col col-sm-4">
+      <%= form_for @user do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %><br>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class:"form-control"  %>
+        </div>
+      <%= f.submit 'Create User' %>
+    </div>
+  </div>
   <% end %>
 </div>
