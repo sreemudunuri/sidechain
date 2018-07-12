@@ -1,7 +1,7 @@
 <h1><%= @user.name %>'s Profile </h1>
 
 <% if @session_id == @user.id %>
-  <%= link_to "Add a new song", new_song_path %>
+  <button type="button" name="button"><%= link_to "Add a new song", new_song_path %></button>
 <% end %>
 
 <% if @session_id != @user.id %>
@@ -16,22 +16,27 @@
 
 
 
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-6">
+      <h3>Your Songs:</h3>
+      <% @user.songs.each do |song| %>
+        <h4><%= link_to song.name, song %></h4>
+      <% end %>
+    </div>
 
-<h4>List of Songs:</h4>
-<% @user.songs.each do |song| %>
-  <%= link_to song.name, song %><br><br>
-<% end %>
-
-------------<br><br>
-
-<h4>Artists you are following: </h4>
-<%  @following.each do |follow| %>
-  <%= link_to User.find(follow.user_id).name,  User.find(follow.user_id)%>
-<% end %>
+    <div class="col col-lg-6">
+      <h3>Artists you are following: </h3>
+      <%  @following.each do |follow| %>
+        <h4><%= link_to User.find(follow.user_id).name,  User.find(follow.user_id)%></h4> 
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <br><br>
 
-------------<br><br>
+
 
 <%  if @session_id == @user.id %>
   <button type="button" name="button"><%= link_to 'Edit my profile', edit_user_path(@user) %></button><br><br>

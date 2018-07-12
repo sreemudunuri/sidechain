@@ -8,7 +8,8 @@ class SongsController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @session_id = session[:user_id]
+    @user = @song.user
     @comment = Comment.new
     @song.make_comment_timestamps
     @song.make_timestamps_integers
@@ -28,6 +29,12 @@ class SongsController < ApplicationController
       else
         render :new
       end
+  end
+
+  def destroy
+    @user = User.find(session[:user_id])
+    @song.destroy
+    redirect_to @user
   end
 
   private
