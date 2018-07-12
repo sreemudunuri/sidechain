@@ -30,6 +30,12 @@ class SongsController < ApplicationController
       end
   end
 
+  def destroy
+    @user = User.find(session[:user_id])
+    @song.destroy
+    redirect_to @user
+  end
+
   private
 
   def set_song
