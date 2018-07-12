@@ -26,10 +26,16 @@
     </div>
 
     <div class="col col-lg-6">
-      <h3>Artists you are following: </h3>
+      <h3>Artists you are following: </h3> 
       <%  @following.each do |follow| %>
-        <h4><%= link_to User.find(follow.user_id).name,  User.find(follow.user_id)%></h4> 
-      <% end %>
+        <h4>Name: <%= link_to User.find(follow.user_id).name,  User.find(follow.user_id)%></h4>
+          <% User.find(follow.user_id).songs.each do |song|%>
+            <ul>
+              <li><%= link_to song.name, song_path(song) %></li>
+            </ul>
+
+          <% end %>
+      <% end %><br>
     </div>
   </div>
 </div>

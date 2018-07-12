@@ -1,28 +1,30 @@
 <h1>Login</h1>
+  <div class="row justify-content-md-center">
+    <div class="col col-sm-4">
+      <%= form_with(scope: "session", url: sessions_path, local: :true) do |f| %>
+      <% if @error %>
+        <div id="error_explanation">
+          <h2>An error prohibited this user from being saved:</h2>
+          <ul>
+            <li><%= @error %></li>
+          </ul>
+        </div>
+      <% end %>
 
-<%= form_with(scope: "session", url: sessions_path, local: :true) do |f| %>
-<% if @error %>
-  <div id="error_explanation">
-    <h2>An error prohibited this user from being saved:</h2>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class:"form-control" %>
+      </div>
 
-    <ul>
-      <li><%= @error %></li>
-    </ul>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class:"form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit 'Log in' %>
+      </div>
+    </div>
   </div>
-  <% end %>
-  <div class="container">
-    <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name %><br><br>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %>
-      <%= f.password_field :password %><br><br>
-    </div>
-
-    <div class="actions">
-      <%= f.submit 'Log in' %>
-    </div>
-  </div>
+</div>
 <% end %>
