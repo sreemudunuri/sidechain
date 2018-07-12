@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :song
   belongs_to :user
 
-  validates :timestamp, presence: true, format: { with: /[0-9][0-9]:[0-9][0-9]/}
+  validates :timestamp, presence: true, format: { with: /[0-9][0-9]:[0-9][0-9]/, message: "Please enter a timestamp in this format: [00:00]"}
   validates :content, presence: true
 
   def make_timestamp
