@@ -13,7 +13,8 @@
           <ul class="nav navbar-nav navbar-right">
 
             <% if @logged_in_user %>
-            <li>Logged in as: <%= @logged_in_user.name %></li>
+            <li class="logged_in_as_text"> Logged in as: <%= @logged_in_user.name %> </li>
+            <li><%= link_to "My Profile", @logged_in_user %></li>
               <li><%= link_to "Log out", logout_path, method: 'delete' %></li>
             <% else %>
               <li><%= link_to "Register", new_user_path %></li>

@@ -17,6 +17,4 @@ class Song < ApplicationRecord
     rails_blob_path(self.image_file, disposition: "attachment", only_path: true)
   end
 
-
-
 end
