@@ -5,12 +5,16 @@ class Song < ApplicationRecord
 
 
   has_one_attached :song_file
+  has_one_attached :image_file
+
   accepts_nested_attributes_for :comments
 
   def song_url
     rails_blob_path(self.song_file, disposition: "attachment", only_path: true)
   end
 
-
+  def image_url
+    rails_blob_path(self.image_file, disposition: "attachment", only_path: true)
+  end
 
 end
