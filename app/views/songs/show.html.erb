@@ -19,13 +19,6 @@
   <br>
   <% if @song.user.id != session[:user_id] %>
 
-    <% if @comment.errors.any? %>
-      <ul>
-        <% @comment.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    <% end %>
 
     <%= form_for @comment do |f| %>
 
