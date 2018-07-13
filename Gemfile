@@ -12,11 +12,7 @@ gem 'pg'
 
 # bootstrap gem
 gem 'bootstrap-sass', '3.3.7'
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 8c12cef353751c7c781d5d7db9816dd885916a6d
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
