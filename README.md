@@ -1,24 +1,12 @@
-# README
+# Sidechain - inspired by souncloud 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+mini version of Sound Cloud
 
-* Ruby version
+built by slowbeam and sree1995 
 
-* System dependencies
+our mod2 project at Flatiron
 
-* Configuration
+used -
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ruby, rails, postgres, bootstrap
