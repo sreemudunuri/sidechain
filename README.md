@@ -1,12 +1,8 @@
-# Sidechain - inspired by souncloud 
+# Sidechain - everyones music library
 
 
-mini version of Sound Cloud
+* mini version of Sound Cloud
 
-built by slowbeam and sree1995 
+* built by [slowbeam](https://github.com/slowbeam) and [sree](https://github.com/sreemudunuri) 
 
-our mod2 project at Flatiron
-
-used -
-
-ruby, rails, postgres, bootstrap
+* our mod2 project at Flatiron - ruby, rails, postgres, bootstrap
