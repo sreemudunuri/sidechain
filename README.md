@@ -1,7 +1,7 @@
 # Sidechain - everyones music library
 
 
-* mini version of Sound Cloud
+* mini version/copy of Sound Cloud
 
 * built by [slowbeam](https://github.com/slowbeam) and [sree](https://github.com/sreemudunuri) 
 
