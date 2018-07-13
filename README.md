@@ -1,4 +1,4 @@
-# Sidechain - everyones music library
+# Sidechain - worlds music library
 
 
 * mini version/copy of Sound Cloud
