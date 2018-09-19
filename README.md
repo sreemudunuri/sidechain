@@ -1,6 +1,8 @@
 # SideChain 
 ## world's music library
 
+* [demo video](https://youtu.be/C4VCiOfG7sE)
+
 * mini version/copy of Sound Cloud
 
 * built by [slowbeam](https://github.com/slowbeam) and [sree](https://github.com/sreemudunuri) 
